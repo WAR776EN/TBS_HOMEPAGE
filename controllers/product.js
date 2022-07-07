@@ -9,7 +9,6 @@ exports.create = async (req, res, next) => {
         message: `product created`,
         data: product
       })
-      next()
   }
   catch (err) {
       next(err)
@@ -20,7 +19,7 @@ exports.getAll = async (req, res, next) => {
   try {
     const { page = 1, size = 10 } = req.query
 
-    const fieldProjection = `_id name description_short price ratings size`
+    const fieldProjection = `_id name image description_short price ratings size`
     const allProducts = await Product
       .find({}, fieldProjection)
       .skip((page - 1) * size)
@@ -44,7 +43,7 @@ exports.getAll = async (req, res, next) => {
 exports.getRecommendation = async (req, res, next) => {
   try {
     const { page = 1, size = 10 } = req.query
-    const fieldProjection = `_id name description_short price ratings size`
+    const fieldProjection = `_id name image description_short price ratings size`
     const allProducts = await Product
       .find({ recommendation: true }, fieldProjection)
       .skip((page - 1) * size)

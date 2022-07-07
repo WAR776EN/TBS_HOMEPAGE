@@ -9,7 +9,7 @@ const ProductSchema = new Schema({
   },
   description_short: {
     type: String,
-    minLengh: 30
+    minxLengh: 30
   },
   desciption_long: {
     type: String

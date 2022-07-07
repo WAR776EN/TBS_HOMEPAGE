@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const productRouter = require('./product')
 
 const allRoutes = [
   {
@@ -10,6 +9,10 @@ const allRoutes = [
   {
     path: '/product',
     route: require('./product')
+  },
+  {
+    path: '/campaign',
+    route: require('./campaign')
   }
 ]
 
