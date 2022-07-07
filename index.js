@@ -24,15 +24,16 @@ app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 app.use(cookieParser());
 
+app.get('/', (req, res) => res.send('ok'))
 // const { _404handler, errorMaster } = require('./middlewares/errorHandler')
-const router = require('./routers')
+// const router = require('./routers')
 
-app.use(router)
+// app.use(router)
 
-app.use('*', _404handler)
+// app.use('*', _404handler)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`server is running at port ${PORT}`)
-  console.log(`[TBS] ${new Date('2021-10-16')} :::: ${new Date()}`)
+  console.log(`[TBS] :::: ${new Date()}`)
 })
