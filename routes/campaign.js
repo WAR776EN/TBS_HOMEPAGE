@@ -7,6 +7,6 @@ const {
 
 router.post('/', Campaign.create)
 router.get('/all', Campaign.getAll)
-router.get('/recommendation', Campaign.getActiveCampaign)
+router.get('/active', Campaign.getActiveCampaign)
 
 module.exports = router

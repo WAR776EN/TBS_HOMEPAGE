@@ -7,6 +7,7 @@ const cors = require('cors')
 const logger = require('morgan');
 const mongoose = require('mongoose')
 require('dotenv').config()
+const {_404Handler, errorHandler} = require('./middlewares/errorHandler')
 
 mongoose
   .connect(process.env.MONGO_CONNECTION, {
@@ -36,6 +37,9 @@ app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 app.use(cookieParser());
 
 app.use(require('./routes'))
+app.use(errorHandler)
+app.use('*', _404Handler)
+
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {

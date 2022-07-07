@@ -47,8 +47,8 @@ exports.getActiveCampaign = async (req, res, next) => {
 
     const allProducts = await Campaign
       .find({
-        startDate: { $gte: new Date() },
-        endDate: { $lte: new Date() }
+        startDate: { $lte: new Date() },
+        endDate: { $gte: new Date() }
        }, fieldProjection)
       .skip((page - 1) * size)
       .limit(size);
